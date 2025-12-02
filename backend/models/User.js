@@ -4,10 +4,10 @@ import bcrypt from "bcryptjs";
 
 
 // ✅ Connect to MongoDB (you can change DB name if needed)
-mongoose.connect("mongodb://127.0.0.1:27017/FoodLink", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+// mongoose.connect("mongodb://127.0.0.1:27017/FoodLink", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 const db = process.env.MONGO_URI;
 console.log (db)

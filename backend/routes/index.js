@@ -156,7 +156,7 @@ const router = express.Router();
 // import jwt from "jsonwebtoken";
 // import authenticateToken from "../middleware/auth.js";
 // import FoodRequest from "../models/foodrequest.js";
-import User from "../models/user.js";
+import User from "../models/User.js";
 import Food from "../models/food.js";
 import Request from "../models/request.js";
 import bcrypt from "bcryptjs";
