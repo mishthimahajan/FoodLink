@@ -624,7 +624,7 @@ const MyRequests = () => {
       try {
         console.log("📡 Fetching requests...");
 
-        const res = await axios.get("https://foodlink-0jeg.onrender.com/request-food", {
+        const res = await axios.get("https://foodlink-0jeg.onrender.com/my-request", {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
