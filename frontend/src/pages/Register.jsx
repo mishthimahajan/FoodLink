@@ -530,7 +530,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:3000/register", formData);
+      const res = await axios.post("https://foodlink-0jeg.onrender.com/request-food", formData);
       alert(res.data.message || "User registered successfully!");
       setFormData({ fullName: "", email: "", password: "", role: "" });
 

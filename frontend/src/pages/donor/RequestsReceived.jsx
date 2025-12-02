@@ -170,7 +170,7 @@ const RequestsReceived = () => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/requests-received");
+        const res = await axios.get("https://foodlink-0jeg.onrender.com/request-food");
         setRequests(res.data);
       } catch (err) {
         console.error("Error fetching requests:", err);

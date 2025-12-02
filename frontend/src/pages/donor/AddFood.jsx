@@ -457,7 +457,7 @@ const AddFood = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3000/add-food", formData);
+      const res = await axios.post("https://foodlink-0jeg.onrender.com/request-food", formData);
 
       if (res.status === 201) {
         setMessage("🍱 Food added successfully!");
