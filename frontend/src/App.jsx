@@ -43,7 +43,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import HeroSection from "./components/HeroSection";
+import HeroSection from "./components/Heroection";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import About from "./pages/About";
