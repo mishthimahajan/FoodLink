@@ -106,17 +106,15 @@ import router from "./routes/index.js";
 // config()
 
 const app = express();
-// const db = process.env.MONGO_URI;
-// console.log (db)
 
 app.use(cors()); // ✅ Allow requests from frontend
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// mongoose
-//   .connect(db)
-//   .then(() => console.log("✅ MongoDB connected"))
-//   .catch((err) => console.log("❌ MongoDB Error:", err));
+mongoose
+  .connect("mongodb://127.0.0.1:27017/FoodLink")
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch((err) => console.log("❌ MongoDB Error:", err));
 
 app.use("/", router);
 
