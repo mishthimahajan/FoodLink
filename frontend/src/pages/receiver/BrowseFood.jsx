@@ -182,7 +182,7 @@ const BrowseFood = () => {
   useEffect(() => {
     const fetchFoods = async () => {
       try {
-        const response = await axios.get("https://foodlink-0jeg.onrender.com/request-food");
+        const response = await axios.get("https://foodlink-0jeg.onrender.com/browse-food");
         setFoods(response.data.foods || []);
       } catch (error) {
         console.error("Error fetching food:", error);
