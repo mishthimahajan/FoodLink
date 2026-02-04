@@ -36,18 +36,25 @@ router.post("/register", async (req, res) => {
       return res.status(400).json({ message: "Email already exists" });
     }
 
+    
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
     const user = new User({
       fullName,
       email,
-      password,
+      password: hashedPassword,
       role,
     });
 
     await user.save();
-    res.json({ message: "User registered successfully", user });
+
+    res.status(201).json({
+      message: "User registered successfully",
+    });
 
   } catch (err) {
-    console.error("Registration error:", err.message);
+    console.error("Registration error:", err);
     res.status(500).json({ error: err.message });
   }
 });
