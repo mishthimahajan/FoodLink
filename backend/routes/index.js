@@ -10,12 +10,36 @@ import jwt from "jsonwebtoken";
 import authenticateToken from "../middleware/auth.js";
 import FoodRequest from "../models/foodrequest.js";
 
-router.get("/receiver/data", authenticateToken, (req, res) => {
-  if (req.user.role !== "receiver") {
-    return res.status(403).json({ message: "Access denied" });
+router.get("/receiver/data", authenticateToken, async (req, res) => {
+  try {
+    if (req.user.role !== "receiver") {
+      return res.status(403).json({ message: "Access denied" });
+    }
+
+    const receiverId = req.user.id;
+
+    const availableFood = await Food.countDocuments({ status: "available" });
+
+    const myRequests = await Request.countDocuments({
+      receiver: receiverId
+    });
+
+    const approvedRequests = await Request.countDocuments({
+      receiver: receiverId,
+      status: "approved"
+    });
+
+    res.json({
+      availableFood,
+      myRequests,
+      approvedRequests
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
   }
-  res.json({ message: "Receiver data loaded" });
 });
+
 router.get("/donor/data", authenticateToken, async (req, res) => {
   try {
     if (req.user.role !== "donor") {
