@@ -10,7 +10,7 @@ const ReceiverDashboard = () => {
     approvedRequests: 0
   });
 
-  const [loading, setLoading] = useState(true);
+  
 
   useEffect(() => {
     const fetchData = async () => {
