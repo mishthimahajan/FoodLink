@@ -18,13 +18,13 @@ const ReceiverDashboard = () => {
         const token = localStorage.getItem("token");
 
         const res = await axios.get(
-          "https://localhost:5000/receiver/data",
-          {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
-          }
-        );
+  "https://foodlink-0jeg.onrender.com/receiver/data",
+  {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  }
+);
 
         setStats(res.data);
         setLoading(false);
