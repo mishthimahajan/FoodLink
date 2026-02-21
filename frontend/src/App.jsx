@@ -59,6 +59,7 @@ import MyListing from "./pages/donor/MyListings";
 import Protected from "./components/Protected";
 import DonorDashboard from "./pages/DonorDashboard";
 import ReceiverDashboard from "./pages/ReceiverDashboard";
+import Contributor from "./pages/Contributor";
 
 
 const App = () => {
@@ -82,6 +83,7 @@ const App = () => {
           <Route path="/dashboard" element={<Protected><Dashboard /></Protected>} />
           <Route path="/donor-dashboard" element={<Protected><DonorDashboard /></Protected>} />
           <Route path="/receiver-dashboard" element={<Protected><ReceiverDashboard /></Protected>} />
+          <Route path="/contributor" element={<Contributor />} />
         </Routes>
       </div>
     </Router>   
