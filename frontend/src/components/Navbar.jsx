@@ -144,6 +144,9 @@ const Navbar = () => {
           <Link to="/contact" style={styles.link} onMouseEnter={(e) => e.target.style.color = styles.linkHover.color} onMouseLeave={(e) => e.target.style.color = styles.link.color}>
             Contact
           </Link>
+          <Link to="/contributor" style={styles.link} onMouseEnter={(e) => e.target.style.color = styles.linkHover.color} onMouseLeave={(e) => e.target.style.color = styles.link.color}>
+            Contributors
+          </Link>
           <Link to="/login" style={styles.link} onMouseEnter={(e) => e.target.style.color = styles.linkHover.color} onMouseLeave={(e) => e.target.style.color = styles.link.color}>
             Login
           </Link>
