@@ -1,152 +1,12 @@
 
-// import React from "react";
-
-// const HeroSection = () => {
-//   const foodImage =
-    
-//     "https://play-lh.googleusercontent.com/0Udfrr6vjLToiLl8mziklywGDqw_VuEj4Kr8ArdDcJ5zJV9alaGrhhE6f_dshVE3Gkg";
-
-//   const styles = {
-//     heroContainer: {
-//       position: "relative",
-//       width: "100vw", // full viewport width
-//       height: "100vh", // full viewport height
-//       display: "flex",
-//       justifyContent: "center",
-//       alignItems: "center",
-//       fontFamily: "Poppins, sans-serif",
-//       background: "linear-gradient(135deg, #b2becbff, #74b9ffcc)",
-//       overflow: "hidden", // prevents scrollbars from minor flex shifts
-//       boxSizing: "border-box",
-//     },
-//     heroContentWrapper: {
-//       display: "flex",
-//       justifyContent: "space-between",
-//       alignItems: "center",
-//       flexWrap: "wrap",
-//       width: "100%",
-//       maxWidth: "1200px", // limits content width
-//       padding: "0 50px", // content padding only
-//       boxSizing: "border-box",
-//       gap: "40px",
-//     },
-//     content: {
-//       flex: 1,
-//       minWidth: "300px",
-//     },
-//     heading: {
-//       fontSize: "3rem",
-//       color: "#1e293b",
-//       fontWeight: "700",
-//       marginBottom: "20px",
-//       lineHeight: "1.2",
-//     },
-//     paragraph: {
-//       color: "#2d3436",
-//       fontSize: "1.2rem",
-//       lineHeight: "1.6",
-//       marginBottom: "30px",
-//     },
-//     buttons: {
-//       display: "flex",
-//       gap: "20px",
-//       flexWrap: "wrap",
-//     },
-//     primaryBtn: {
-//       backgroundColor: "#22c55e",
-//       color: "white",
-//       border: "none",
-//       padding: "12px 30px",
-//       borderRadius: "8px",
-//       fontSize: "1.1rem",
-//       cursor: "pointer",
-//       transition: "all 0.3s ease",
-//     },
-//     secondaryBtn: {
-//       backgroundColor: "transparent",
-//       border: "2px solid #22c55e",
-//       color: "#22c55e",
-//       padding: "10px 28px",
-//       borderRadius: "8px",
-//       fontSize: "1.1rem",
-//       cursor: "pointer",
-//       transition: "all 0.3s ease",
-//     },
-//     imageContainer: {
-//       flex: 1,
-//       display: "flex",
-//       justifyContent: "center",
-//       alignItems: "center",
-//       minWidth: "300px",
-//     },
-//     image: {
-//       width: "400px",
-//       borderRadius: "16px",
-//       boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-//     },
-//   };
-
-//   return (
-//     <section style={styles.heroContainer}>
-//       <div style={styles.heroContentWrapper}>
-//         <div style={styles.content}>
-//           <h1 style={styles.heading}>
-//             Reducing Food Waste, Feeding the Hungry
-//           </h1>
-//           <p style={styles.paragraph}>
-//             FoodLink connects restaurants, events, and individuals with nearby
-//             NGOs or people in need — making surplus food reach those who need it
-//             most.
-//           </p>
-//           <div style={styles.buttons}>
-//             <button
-//               style={styles.primaryBtn}
-//               onMouseOver={(e) =>
-//                 (e.target.style.backgroundColor = "#16a34a")
-//               }
-//               onMouseOut={(e) =>
-//                 (e.target.style.backgroundColor = "#22c55e")
-//               }
-//             >
-//               Get Started
-//             </button>
-//             <button
-//               style={styles.secondaryBtn}
-//               onMouseOver={(e) => {
-//                 e.target.style.backgroundColor = "#22c55e";
-//                 e.target.style.color = "white";
-//               }}
-//               onMouseOut={(e) => {
-//                 e.target.style.backgroundColor = "transparent";
-//                 e.target.style.color = "#22c55e";
-//               }}
-//             >
-//               Learn More
-//             </button>
-//           </div>
-//         </div>
-
-//         <div style={styles.imageContainer}>
-//           <img
-//             src={foodImage}
-//             alt="FoodLink Illustration"
-//             style={styles.image}
-//           />
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default HeroSection;
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const HeroSection = () => {
   const navigate = useNavigate();
   const foodImage =
-    "https://play-lh.googleusercontent.com/0Udfrr6vjLToiLl8mziklywGDqw_VuEj4Kr8ArdDcJ5zJV9alaGrhhE6f_dshVE3Gkg";
+    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80";
 
   const howItWorksSteps = [
     {
@@ -217,7 +77,13 @@ const HeroSection = () => {
   ];
 
   const s = {
-    page: { fontFamily: "Poppins, sans-serif", width: "100%", overflowX: "hidden" },
+    page: {
+      fontFamily: "Poppins, sans-serif",
+      width: "100%",
+      minHeight: "100vh",
+      background: "linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%)",
+      overflowX: "hidden",
+    },
 
     // ── Hero ──
     heroContainer: {
@@ -227,7 +93,7 @@ const HeroSection = () => {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      background: "linear-gradient(135deg, #b2becbff, #74b9ffcc)",
+      background: "linear-gradient(135deg, #a5b4fc 0%, #f0abfc 100%)",
       overflow: "hidden",
       boxSizing: "border-box",
       padding: "60px 20px",
@@ -245,9 +111,9 @@ const HeroSection = () => {
     },
     badge: {
       display: "inline-block",
-      background: "rgba(34,197,94,0.15)",
-      color: "#16a34a",
-      border: "1px solid rgba(34,197,94,0.4)",
+      background: "rgba(99,102,241,0.15)",
+      color: "#6366f1",
+      border: "1px solid rgba(99,102,241,0.4)",
       borderRadius: "50px",
       padding: "6px 18px",
       fontSize: "0.85rem",
@@ -258,14 +124,15 @@ const HeroSection = () => {
     content: { flex: 1, minWidth: "300px" },
     heading: {
       fontSize: "3.2rem",
-      color: "#1e293b",
+      color: "#312e81",
       fontWeight: "800",
       marginBottom: "20px",
       lineHeight: "1.2",
+      letterSpacing: "-0.02em",
     },
-    headingAccent: { color: "#22c55e" },
+    headingAccent: { color: "#f472b6" },
     paragraph: {
-      color: "#475569",
+      color: "#6b7280",
       fontSize: "1.15rem",
       lineHeight: "1.7",
       marginBottom: "36px",
@@ -273,23 +140,23 @@ const HeroSection = () => {
     },
     buttons: { display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center" },
     primaryBtn: {
-      backgroundColor: "#22c55e",
+      background: "linear-gradient(90deg, #6366f1 0%, #f472b6 100%)",
       color: "white",
       border: "none",
       padding: "14px 32px",
-      borderRadius: "10px",
+      borderRadius: "12px",
       fontSize: "1rem",
       fontWeight: "700",
       cursor: "pointer",
       transition: "all 0.3s ease",
-      boxShadow: "0 6px 20px rgba(34,197,94,0.35)",
+      boxShadow: "0 6px 20px rgba(99,102,241,0.25)",
     },
     secondaryBtn: {
-      backgroundColor: "transparent",
-      border: "2px solid #22c55e",
-      color: "#16a34a",
+      backgroundColor: "white",
+      border: "2px solid #f472b6",
+      color: "#f472b6",
       padding: "12px 28px",
-      borderRadius: "10px",
+      borderRadius: "12px",
       fontSize: "1rem",
       fontWeight: "600",
       cursor: "pointer",
@@ -305,14 +172,15 @@ const HeroSection = () => {
     image: {
       width: "420px",
       maxWidth: "100%",
-      borderRadius: "24px",
-      boxShadow: "0 20px 60px rgba(0,0,0,0.18)",
+      borderRadius: "32px",
+      boxShadow: "0 20px 60px rgba(244,114,182,0.18)",
+      border: "6px solid #fff",
     },
 
     // ── How It Works ──
     sectionContainer: {
       padding: "90px 40px",
-      background: "#f8fafc",
+      background: "linear-gradient(135deg, #f0abfc 0%, #a5b4fc 100%)",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -349,9 +217,9 @@ const HeroSection = () => {
     },
     stepCard: (color) => ({
       background: "white",
-      borderRadius: "20px",
+      borderRadius: "24px",
       padding: "36px 28px",
-      boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
+      boxShadow: `0 4px 24px ${color}33`,
       borderTop: `4px solid ${color}`,
       transition: "transform 0.25s ease, box-shadow 0.25s ease",
     }),
@@ -369,7 +237,7 @@ const HeroSection = () => {
     // ── Impact Cards ──
     impactSection: {
       padding: "90px 40px",
-      background: "white",
+      background: "linear-gradient(135deg, #a5b4fc 0%, #f0abfc 100%)",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -382,12 +250,13 @@ const HeroSection = () => {
       width: "100%",
     },
     impactCard: {
-      background: "#f8fafc",
-      borderRadius: "18px",
+      background: "#fff",
+      borderRadius: "22px",
       padding: "32px 24px",
       textAlign: "center",
       transition: "transform 0.25s ease, box-shadow 0.25s ease",
-      cursor: "default",
+      cursor: "pointer",
+      boxShadow: "0 4px 20px #a5b4fc33",
     },
     impactIcon: { fontSize: "2.5rem", marginBottom: "16px" },
     impactTitle: { fontSize: "1.1rem", fontWeight: "700", color: "#1e293b", marginBottom: "10px" },
@@ -396,7 +265,7 @@ const HeroSection = () => {
     // ── Testimonials ──
     testimonialsSection: {
       padding: "90px 40px",
-      background: "linear-gradient(135deg, #ecfdf5, #f0f9ff)",
+      background: "linear-gradient(135deg, #f0abfc 0%, #a5b4fc 100%)",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -410,9 +279,11 @@ const HeroSection = () => {
     },
     testimonialCard: {
       background: "white",
-      borderRadius: "20px",
+      borderRadius: "24px",
       padding: "32px 28px",
-      boxShadow: "0 4px 20px rgba(0,0,0,0.06)",
+      boxShadow: "0 4px 20px #f472b633",
+      transition: "transform 0.25s ease, box-shadow 0.25s ease",
+      cursor: "pointer",
     },
     testimonialText: {
       fontSize: "0.97rem",
@@ -438,7 +309,7 @@ const HeroSection = () => {
     // ── CTA ──
     ctaSection: {
       padding: "90px 40px",
-      background: "linear-gradient(135deg, #16a34a, #0284c7)",
+      background: "linear-gradient(135deg, #6366f1 0%, #f472b6 100%)",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -487,57 +358,44 @@ const HeroSection = () => {
   return (
     <div style={s.page}>
       {/* ── Hero Section ── */}
-      <section style={s.heroContainer}>
+      <motion.section style={s.heroContainer} initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
         <div style={s.heroContentWrapper}>
-          <div style={s.content}>
+          <motion.div style={s.content} initial={{ x: -60, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.7 }}>
             <span style={s.badge}>🌍 Fighting Food Waste Together</span>
             <h1 style={s.heading}>
               Reducing Food Waste,{" "}
               <span style={s.headingAccent}>Feeding the Hungry</span>
             </h1>
             <p style={s.paragraph}>
-              FoodLink connects restaurants, events, and individuals with nearby
-              NGOs or people in need — making surplus food reach those who need it most.
+              FoodLink connects restaurants, events, and individuals with nearby NGOs or people in need — making surplus food reach those who need it most.
             </p>
             <div style={s.buttons}>
-              <button
+              <motion.button
                 style={s.primaryBtn}
+                whileHover={{ scale: 1.07, boxShadow: "0 12px 32px #f472b633" }}
+                whileTap={{ scale: 0.97 }}
                 onClick={() => navigate("/register")}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = "#16a34a";
-                  e.target.style.transform = "translateY(-2px)";
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = "#22c55e";
-                  e.target.style.transform = "translateY(0)";
-                }}
               >
                 Get Started — It's Free
-              </button>
-              <button
+              </motion.button>
+              <motion.button
                 style={s.secondaryBtn}
+                whileHover={{ backgroundColor: "#f472b6", color: "white", borderColor: "#6366f1" }}
+                whileTap={{ scale: 0.97 }}
                 onClick={() => navigate("/about")}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = "#22c55e";
-                  e.target.style.color = "white";
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = "transparent";
-                  e.target.style.color = "#16a34a";
-                }}
               >
                 Learn More
-              </button>
+              </motion.button>
             </div>
-          </div>
-          <div style={s.imageContainer}>
-            <img src={foodImage} alt="FoodLink Illustration" style={s.image} />
-          </div>
+          </motion.div>
+          <motion.div style={s.imageContainer} initial={{ x: 60, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ duration: 0.7 }}>
+            <motion.img src={foodImage} alt="FoodLink Illustration" style={s.image} whileHover={{ scale: 1.04, boxShadow: "0 24px 80px #6366f133" }} />
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
 
       {/* ── How It Works ── */}
-      <section style={s.sectionContainer}>
+      <motion.section style={s.sectionContainer} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
         <p style={s.sectionTag}>Simple & Fast</p>
         <h2 style={s.sectionTitle}>How FoodLink Works</h2>
         <p style={s.sectionSubtitle}>
@@ -545,29 +403,26 @@ const HeroSection = () => {
         </p>
         <div style={s.stepsGrid}>
           {howItWorksSteps.map((step, i) => (
-            <div
+            <motion.div
               key={i}
               style={s.stepCard(step.color)}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.12)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 4px 24px rgba(0,0,0,0.07)";
-              }}
+              whileHover={{ scale: 1.06, boxShadow: `0 12px 40px ${step.color}55` }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.15 }}
             >
               <div style={s.stepNumber(step.color)}>STEP {step.step}</div>
               <div style={s.stepIcon}>{step.icon}</div>
               <h3 style={s.stepTitle}>{step.title}</h3>
               <p style={s.stepDesc}>{step.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* ── Why FoodLink ── */}
-      <section style={s.impactSection}>
+      <motion.section style={s.impactSection} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
         <p style={s.sectionTag}>Why FoodLink</p>
         <h2 style={s.sectionTitle}>Built for Real Impact</h2>
         <p style={s.sectionSubtitle}>
@@ -575,28 +430,25 @@ const HeroSection = () => {
         </p>
         <div style={s.impactGrid}>
           {impactCards.map((card, i) => (
-            <div
+            <motion.div
               key={i}
               style={s.impactCard}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-5px)";
-                e.currentTarget.style.boxShadow = "0 10px 30px rgba(0,0,0,0.1)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
+              whileHover={{ scale: 1.06, boxShadow: "0 10px 30px #6366f133" }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.12 }}
             >
               <div style={s.impactIcon}>{card.icon}</div>
               <h3 style={s.impactTitle}>{card.title}</h3>
               <p style={s.impactDesc}>{card.desc}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* ── Testimonials ── */}
-      <section style={s.testimonialsSection}>
+      <motion.section style={s.testimonialsSection} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
         <p style={s.sectionTag}>Community Stories</p>
         <h2 style={s.sectionTitle}>What Our Users Say</h2>
         <p style={{ ...s.sectionSubtitle, marginBottom: "50px" }}>
@@ -604,7 +456,15 @@ const HeroSection = () => {
         </p>
         <div style={s.testimonialsGrid}>
           {testimonials.map((t, i) => (
-            <div key={i} style={s.testimonialCard}>
+            <motion.div
+              key={i}
+              style={s.testimonialCard}
+              whileHover={{ scale: 1.05, boxShadow: "0 12px 32px #f472b633" }}
+              whileTap={{ scale: 0.98 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.12 }}
+            >
               <p style={s.testimonialText}>"{t.text}"</p>
               <div style={s.testimonialAuthor}>
                 <div style={s.testimonialAvatar}>{t.avatar}</div>
@@ -613,36 +473,36 @@ const HeroSection = () => {
                   <div style={s.testimonialRole}>{t.role}</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
-      </section>
+      </motion.section>
 
       {/* ── CTA Section ── */}
-      <section style={s.ctaSection}>
+      <motion.section style={s.ctaSection} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
         <h2 style={s.ctaTitle}>Ready to Make a Difference?</h2>
         <p style={s.ctaSubtitle}>
           Join thousands of donors and receivers already using FoodLink to reduce waste and feed communities.
         </p>
         <div style={s.ctaButtons}>
-          <button
+          <motion.button
             style={s.ctaPrimaryBtn}
+            whileHover={{ scale: 1.07, boxShadow: "0 12px 32px #6366f133" }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => navigate("/register")}
-            onMouseOver={(e) => { e.target.style.transform = "translateY(-2px)"; e.target.style.boxShadow = "0 12px 32px rgba(0,0,0,0.2)"; }}
-            onMouseOut={(e) => { e.target.style.transform = "translateY(0)"; e.target.style.boxShadow = "0 8px 24px rgba(0,0,0,0.15)"; }}
           >
             Join FoodLink Today
-          </button>
-          <button
+          </motion.button>
+          <motion.button
             style={s.ctaSecondaryBtn}
+            whileHover={{ backgroundColor: "#f472b6", color: "white", borderColor: "#6366f1" }}
+            whileTap={{ scale: 0.97 }}
             onClick={() => navigate("/contact")}
-            onMouseOver={(e) => { e.target.style.background = "rgba(255,255,255,0.15)"; }}
-            onMouseOut={(e) => { e.target.style.background = "transparent"; }}
           >
             Contact Us
-          </button>
+          </motion.button>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };
