@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const RequestsReceived = () => {
   const [requests, setRequests] = useState([]);
@@ -20,6 +21,7 @@ const RequestsReceived = () => {
 
   // ✅ Update request status
   const handleUpdateStatus = async (id, newStatus) => {
+    const loadingToast = toast.loading(`Updating status to ${newStatus}...`);
     try {
       const res = await axios.put(
         `https://foodlink-0jeg.onrender.com/requests/update-status/${id}`,
@@ -30,8 +32,10 @@ const RequestsReceived = () => {
       setRequests((prev) =>
         prev.map((r) => (r._id === id ? { ...r, status: res.data.status } : r))
       );
+      toast.success(`Request ${newStatus.toLowerCase()} successfully ✅`, { id: loadingToast });
     } catch (err) {
       console.error("Error updating status:", err);
+      toast.error("Failed to update request status. Please try again.", { id: loadingToast });
     }
   };
 

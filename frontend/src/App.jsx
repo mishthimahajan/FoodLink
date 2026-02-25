@@ -42,6 +42,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import { Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import HeroSection from "./components/Herosection";
 import Login from "./pages/Login";
@@ -59,11 +60,13 @@ import MyListing from "./pages/donor/MyListings";
 import Protected from "./components/Protected";
 import DonorDashboard from "./pages/DonorDashboard";
 import ReceiverDashboard from "./pages/ReceiverDashboard";
+import TermsOfService from "./pages/TermsOfService";
 
 
 const App = () => {
   return (
     <Router>   
+      <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
       <Navbar />
       <div style={{ paddingTop: "80px" }}>
         <Routes>
@@ -82,6 +85,8 @@ const App = () => {
           <Route path="/dashboard" element={<Protected><Dashboard /></Protected>} />
           <Route path="/donor-dashboard" element={<Protected><DonorDashboard /></Protected>} />
           <Route path="/receiver-dashboard" element={<Protected><ReceiverDashboard /></Protected>} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          
         </Routes>
       </div>
     </Router>   

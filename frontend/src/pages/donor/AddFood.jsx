@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const AddFood = () => {
   const navigate = useNavigate();
@@ -11,8 +12,6 @@ const AddFood = () => {
     location: "",
     contact: "",
   });
-
-  const [message, setMessage] = useState("");
 
   // Handle input change
   const handleChange = (e) => {
@@ -30,7 +29,7 @@ const AddFood = () => {
       const res = await axios.post("https://foodlink-0jeg.onrender.com/add-food", formData);
 
       if (res.status === 201) {
-        setMessage("🍱 Food added successfully!");
+        toast.success("🍱 Food added successfully!");
         setFormData({ foodName: "", quantity: "", location: "", contact: "" });
         setTimeout(() => {
           navigate("/receiver/browse-food");
@@ -38,7 +37,7 @@ const AddFood = () => {
       }
     } catch (error) {
       console.error("Error adding food:", error);
-      setMessage("❌ Failed to add food. Please check the backend connection.");
+      toast.error("❌ Failed to add food. Please check the backend connection.");
     }
   };
 
@@ -148,8 +147,6 @@ const AddFood = () => {
         <button type="submit" style={styles.button}>
           Submit Food
         </button>
-
-        {message && <p style={styles.message}>{message}</p>}
       </form>
     </div>
   );

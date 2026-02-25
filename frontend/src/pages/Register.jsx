@@ -12,6 +12,7 @@ const Register = () => {
 
   const handleSubmit = async (e) => { 
     e.preventDefault();
+    const loadingToast = toast.loading("Creating your account...");
     try {
       // Step 1: Register
       const regRes = await fetch('http://localhost:5000/register', {

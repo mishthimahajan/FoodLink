@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch, FaShoppingBasket, FaHistory } from "react-icons/fa";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const ReceiverDashboard = () => {
   const [stats, setStats] = useState({
@@ -28,7 +29,7 @@ const ReceiverDashboard = () => {
         setLoading(false);
       } catch (err) {
         console.error(err);
-        alert("Session expired or unauthorized");
+        toast.error("❌ Session expired or unauthorized. Please log in again.");
       }
     };
 

@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const BrowseFood = () => {
   const [foods, setFoods] = useState([]);
@@ -17,7 +18,7 @@ const BrowseFood = () => {
         setFoods(response.data.foods || []);
       } catch (error) {
         console.error("Error fetching food:", error);
-        alert("❌ Failed to fetch food items. Please check your backend.");
+        toast.error("❌ Failed to fetch food items. Please check your backend.");
       } finally {
         setLoading(false);
       }
@@ -43,12 +44,12 @@ const handleRequest = async (foodId) => {
       }
     );
 
-    alert(res.data.message || "Request sent!");
+    toast.success(res.data.message || "Request sent! ✅");
     navigate("/receiver/my-requests");
 
   } catch (err) {
     console.error("Error requesting food:", err);
-    alert("Failed to request food");
+    toast.error("❌ Failed to request food. Please try again.");
   }
 };
 
