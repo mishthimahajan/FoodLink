@@ -223,30 +223,6 @@ const Navbar = () => {
           <Link to="/dashboard" style={styles.link} onMouseEnter={(e) => e.target.style.color = styles.linkHover.color} onMouseLeave={(e) => e.target.style.color = styles.link.color}>
             Dashboard
           </Link>
-          {/* Food Category Filter (Desktop) */}
-          <div style={styles.filterContainer}>
-            <span style={styles.filterLabel}>
-              <span role="img" aria-label="Category">🍽️</span> Category
-            </span>
-            <div style={styles.filterSelectWrapper}>
-              <select
-                style={styles.filterSelect}
-                value={selectedCategory}
-                onChange={e => setSelectedCategory(e.target.value)}
-                aria-label="Filter food category"
-                onFocus={e => e.target.style.boxShadow = '0 0 0 2px #16a34a44'}
-                onBlur={e => e.target.style.boxShadow = styles.filterSelect.boxShadow}
-                onMouseOver={e => e.target.style.color = '#22c55e'}
-                onMouseOut={e => e.target.style.color = styles.filterSelect.color}
-              >
-                <option value="">All</option>
-                {FOOD_CATEGORIES.map(cat => (
-                  <option key={cat.value} value={cat.value}>{cat.label}</option>
-                ))}
-              </select>
-              <span style={styles.filterArrow}>▼</span>
-            </div>
-          </div>
         </div>
 
         {/* HAMBURGER BUTTON */}
