@@ -61,6 +61,7 @@ import Protected from "./components/Protected";
 import DonorDashboard from "./pages/DonorDashboard";
 import ReceiverDashboard from "./pages/ReceiverDashboard";
 import TermsOfService from "./pages/TermsOfService";
+import Footer from "./components/Footer";
 
 
 const App = () => {
@@ -89,6 +90,7 @@ const App = () => {
           
         </Routes>
       </div>
+      <Footer />
     </Router>   
   );
 };

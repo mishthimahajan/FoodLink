@@ -1,6 +1,7 @@
 
 
 import express, { response } from "express";
+import rateLimit from "express-rate-limit";
 const router = express.Router();
 import User from "../models/User.js";
 import Food from "../models/food.js";
@@ -9,6 +10,15 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import authenticateToken from "../middleware/auth.js";
 import FoodRequest from "../models/foodrequest.js";
+
+// Stricter limiter for auth endpoints to prevent brute-force
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 5, // limit each IP to 5 requests per windowMs
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { message: "Too many authentication attempts, please try again later." },
+});
 
 router.get("/receiver/data", authenticateToken, async (req, res) => {
   try {
@@ -69,7 +79,7 @@ router.get("/donor/data", authenticateToken, async (req, res) => {
   }
 });
 
-router.post("/register", async (req, res) => {
+router.post("/register", authLimiter, async (req, res) => {
   try {
     const { fullName, email, password, role } = req.body;
 
@@ -103,7 +113,7 @@ router.post("/register", async (req, res) => {
 
 
 
-router.post("/login", async (req, res) => {
+router.post("/login", authLimiter, async (req, res) => {
   try {
     const { email, password } = req.body;
 
