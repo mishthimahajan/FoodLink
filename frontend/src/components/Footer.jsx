@@ -103,8 +103,8 @@ const Footer = () => {
           <Link to="/" style={styles.link}>Home</Link>
           <Link to="/about" style={styles.link}>About</Link>
           <Link to="/features" style={styles.link}>Features</Link>
-          <Link to="/login" style={styles.link}>Login</Link>
-          <Link to="/register" style={styles.link}>Register</Link>
+          <Link to="/terms-of-service" style={styles.link}>Terms of Service</Link>
+          <Link to="/contact" style={styles.link}>Contact</Link>
         </div>
 
         {/* RIGHT — Contact */}
