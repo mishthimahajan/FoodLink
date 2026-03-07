@@ -39,12 +39,13 @@
 
 // export default App;
 
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 // import { Routes, Route } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
 import HeroSection from "./components/Herosection";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -63,11 +64,25 @@ import DonorDashboard from "./pages/DonorDashboard";
 import ReceiverDashboard from "./pages/ReceiverDashboard";
 import TermsOfService from "./pages/TermsOfService";
 
+// Routes component that handles loading state
+const AppRoutes = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const location = useLocation();
 
-const App = () => {
+  useEffect(() => {
+    // Show loader when route changes
+    setIsLoading(true);
+    // Hide loader after a short delay (simulating page load)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [location]);
+
   return (
-    <Router>   
-      <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
+    <>
+      <Loader isLoading={isLoading} />
       <Navbar />
       <div style={{ paddingTop: "80px" }}>
         <Routes>
@@ -87,10 +102,18 @@ const App = () => {
           <Route path="/donor-dashboard" element={<Protected><DonorDashboard /></Protected>} />
           <Route path="/receiver-dashboard" element={<Protected><ReceiverDashboard /></Protected>} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
-          
         </Routes>
       </div>
       <Footer />
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <Router>   
+      <Toaster position="top-right" toastOptions={{ duration: 3000 }} />
+      <AppRoutes />
     </Router>   
   );
 };
