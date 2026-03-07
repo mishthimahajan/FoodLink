@@ -81,22 +81,15 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Section 2: Quick Links */}
-          <div className="footer-section footer-links">
-            <h3 className="section-title">Quick Links</h3>
-            <nav className="links-list">
-              {quickLinks.map((link, idx) => (
-                <Link 
-                  key={idx} 
-                  to={link.to} 
-                  className="footer-link"
-                >
-                  <span className="link-icon">→</span>
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-          </div>
+        {/* MIDDLE — Quick Links */}
+        <div>
+          <h3 style={styles.sectionTitle}>Quick Links</h3>
+          <Link to="/" style={styles.link}>Home</Link>
+          <Link to="/about" style={styles.link}>About</Link>
+          <Link to="/features" style={styles.link}>Features</Link>
+          <Link to="/terms-of-service" style={styles.link}>Terms of Service</Link>
+          <Link to="/contact" style={styles.link}>Contact</Link>
+        </div>
 
           {/* Section 3: For Donors */}
           <div className="footer-section footer-links">
