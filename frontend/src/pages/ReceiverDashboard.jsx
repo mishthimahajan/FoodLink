@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { FaSearch, FaShoppingBasket, FaHistory } from "react-icons/fa";
 import axios from "axios";
 import toast from "react-hot-toast";
-import Skeleton from "react-loading-skeleton";
-import "react-loading-skeleton/dist/skeleton.css";
 
 const ReceiverDashboard = () => {
   const [stats, setStats] = useState({
